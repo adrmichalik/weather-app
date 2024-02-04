@@ -1,0 +1,8 @@
+.weather_card {
+  /* For testing purposes */
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  /* For testing purposes */
+}

@@ -1,33 +1,35 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Carousel from "react-bootstrap/Carousel";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [index, setIndex] = useState(0);
+
+  function handleSelect(selectedId) {
+    setIndex(selectedId);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Carousel
+      activeIndex={index}
+      onSelect={handleSelect}
+      touch={false}
+      variant="dark"
+      interval={null}
+      // TODO:
+      // In the future it will depends on card numbers
+      indicators={true}
+      controls={true}
+    >
+      <Carousel.Item>
+        <div className="weather_card">Weather Card #1</div>
+      </Carousel.Item>
+      <Carousel.Item>
+        <div className="weather_card">Weather Card #2</div>
+      </Carousel.Item>
+    </Carousel>
   );
 }
 
