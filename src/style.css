@@ -24,6 +24,14 @@
   gap: 2px;
 }
 
+.weather_cards .carousel-indicators > button {
+  width: 8px;
+  height: 8px;
+  border: 0 solid;
+  border-radius: 6px;
+  margin: 0 2px;
+}
+
 .weather_card {
   /* For testing purposes */
   display: flex;
