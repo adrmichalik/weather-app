@@ -16,6 +16,7 @@ function App() {
     <Carousel
       activeIndex={index}
       onSelect={handleSelect}
+      className="weather_cards"
       touch={false}
       variant="dark"
       interval={null}
