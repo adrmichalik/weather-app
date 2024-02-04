@@ -20,6 +20,8 @@
   justify-content: center;
   padding-bottom: 40px;
   /* For testing purposes */
+
+  border-radius: 0px;
 }
 .weather_card .main_informations {
   text-align: center;
@@ -28,6 +30,10 @@
 @media (min-width: 600px) {
   #root {
     padding: 20px;
+  }
+
+  .weather_card {
+    border-radius: var(--bs-card-border-radius);
   }
 
   .weather_cards .carousel-item {
