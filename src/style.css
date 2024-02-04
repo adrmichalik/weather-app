@@ -30,6 +30,7 @@
 }
 .weather_card .card-body {
   padding: 2rem;
+  width: 100%;
 }
 .weather_card .main_informations {
   text-align: center;
