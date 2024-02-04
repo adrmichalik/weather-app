@@ -18,6 +18,12 @@
   width: 2rem;
 }
 
+.weather_cards .carousel-indicators {
+  bottom: -50px;
+  align-items: center;
+  gap: 2px;
+}
+
 .weather_card {
   /* For testing purposes */
   display: flex;
