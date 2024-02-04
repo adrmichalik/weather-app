@@ -1,8 +1,11 @@
 .weather_card {
   /* For testing purposes */
   display: flex;
-  height: 100px;
   align-items: center;
   justify-content: center;
+  padding-bottom: 40px;
   /* For testing purposes */
+}
+.weather_card .main_informations {
+  text-align: center;
 }
