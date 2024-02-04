@@ -13,6 +13,11 @@
   margin-bottom: 40px;
 }
 
+.weather_cards .carousel-control-prev,
+.weather_cards .carousel-control-next {
+  width: 2rem;
+}
+
 .weather_card {
   /* For testing purposes */
   display: flex;
@@ -39,5 +44,12 @@
   .weather_cards .carousel-item {
     padding-right: 20px;
     padding-left: 20px;
+  }
+
+  .weather_cards .carousel-control-prev {
+    left: -1rem;
+  }
+  .weather_cards .carousel-control-next {
+    right: -1rem;
   }
 }
