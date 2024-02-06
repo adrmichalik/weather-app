@@ -1,12 +1,6 @@
 import React from "react";
 
-function HourlySliderItem({
-  hour,
-  minutes,
-  icon,
-  description,
-  temperature_unit,
-}) {
+function HourlySliderItem({ hour, minutes, icon, description }) {
   return (
     <div className="hourly_slider_item">
       <div>

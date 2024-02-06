@@ -58,7 +58,6 @@ function WeatherCard({ locationName, coordinates }) {
             forecasts={weather.hourly}
             sunrises={weather.daily.sunrise}
             sunsets={weather.daily.sunset}
-            forecasts_unit={weather.hourly_units.temperature_2m}
             current_temp_info={{
               temp: weather.current.temperature_2m,
               code: weather.current.weather_code,
