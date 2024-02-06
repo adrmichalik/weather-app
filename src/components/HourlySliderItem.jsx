@@ -15,8 +15,9 @@ function HourlySliderItem({
       </div>
       <div>{icon}</div>
       <div>
-        {description}
-        {temperature_unit}
+        {typeof description == "number"
+          ? Math.round(description) + "°"
+          : description.charAt(0).toUpperCase() + description.slice(1)}
       </div>
     </div>
   );
