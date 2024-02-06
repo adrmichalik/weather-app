@@ -37,10 +37,18 @@ function WeatherCard({ locationName, coordinates }) {
     <Card className="weather_card">
       <Card.Body>
         <div className="main_informations">
-          <h5>{location_name}</h5>
-          <h2>10 *C</h2>
-          <h4>Weather description</h4>
-          <span>From 0 *C to 20 *C</span>
+          <h5>{locationName}</h5>
+          <h2>
+            {Math.round(weather.current.temperature_2m)}{" "}
+            {weather.current_units.temperature_2m}
+          </h2>
+          <h4>{weather.current.weather_code}</h4>
+          <span>
+            From {Math.round(weather.daily.temperature_2m_min[0])}{" "}
+            {weather.daily_units.temperature_2m_min} to{" "}
+            {Math.round(weather.daily.temperature_2m_max[0])}{" "}
+            {weather.daily_units.temperature_2m_max}
+          </span>
         </div>
         <div>
           {/* In the future HourlyTempSlider (might change name) */}
