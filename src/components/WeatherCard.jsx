@@ -54,7 +54,12 @@ function WeatherCard({ locationName, coordinates }) {
         <div>
           {/* In the future HourlyTempSlider (might change name) */}
           {/* It will contain temp, weather related icon and hour */}
-          <HourlySlider />
+          <HourlySlider
+            forecasts={weather.hourly}
+            sunrises={weather.daily.sunrise}
+            sunsets={weather.daily.sunrise}
+            forecasts_unit={weather.hourly_units.temperature_2m}
+          />
 
           {/* In the future it will contain multiple forecast items*/}
           {/* Maybe separate component */}
