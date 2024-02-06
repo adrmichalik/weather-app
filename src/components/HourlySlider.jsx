@@ -1,5 +1,7 @@
+import Card from "react-bootstrap/Card";
+
 function HourlySlider() {
-  return <div>HourlySlider</div>;
+  return <Card className="hourly_slider">HourlySlider</Card>;
 }
 
 export default HourlySlider;
