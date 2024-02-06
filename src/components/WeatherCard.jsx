@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
+import HourlySlider from "./HourlySlider";
 
 function WeatherCard({ locationName, coordinates }) {
   const [location_name, setLocation_name] = useState(locationName);
@@ -53,7 +54,7 @@ function WeatherCard({ locationName, coordinates }) {
         <div>
           {/* In the future HourlyTempSlider (might change name) */}
           {/* It will contain temp, weather related icon and hour */}
-          <div className="slider">Slider Placeholder</div>
+          <HourlySlider />
 
           {/* In the future it will contain multiple forecast items*/}
           {/* Maybe separate component */}
