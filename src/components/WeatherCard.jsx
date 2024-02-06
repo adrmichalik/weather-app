@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
+import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
 
 function WeatherCard() {
@@ -25,11 +25,11 @@ function WeatherCard() {
               Multiple day forecast
             </ListGroup.Item>
             {/* Items */}
-            <ListGroupItem>
+            <ListGroup.Item>
               <span>Day name</span>
               <span>Weather Icon</span>
               <span>Temp ranges</span>
-            </ListGroupItem>
+            </ListGroup.Item>
           </ListGroup>
         </div>
       </Card.Body>
