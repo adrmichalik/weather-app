@@ -24,10 +24,10 @@ function App() {
       controls={true}
     >
       <Carousel.Item>
-        <WeatherCard />
+        <WeatherCard locationName="Cracow" />
       </Carousel.Item>
       <Carousel.Item>
-        <WeatherCard />
+        <WeatherCard locationName="Warsaw" />
       </Carousel.Item>
     </Carousel>
   );
