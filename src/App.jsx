@@ -24,10 +24,16 @@ function App() {
       controls={true}
     >
       <Carousel.Item>
-        <WeatherCard locationName="Cracow" />
+        <WeatherCard
+          locationName="Cracow"
+          coordinates={{ longitude: 50.049683, latitude: 19.944544 }}
+        />
       </Carousel.Item>
       <Carousel.Item>
-        <WeatherCard locationName="Warsaw" />
+        <WeatherCard
+          locationName="Warsaw"
+          coordinates={{ longitude: 52.237049, latitude: 21.017532 }}
+        />
       </Carousel.Item>
     </Carousel>
   );
