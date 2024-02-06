@@ -26,13 +26,13 @@ function App() {
       <Carousel.Item>
         <WeatherCard
           locationName="Cracow"
-          coordinates={{ longitude: 50.049683, latitude: 19.944544 }}
+          coordinates={{ latitude: 50.049683, longitude: 19.944544 }}
         />
       </Carousel.Item>
       <Carousel.Item>
         <WeatherCard
           locationName="Warsaw"
-          coordinates={{ longitude: 52.237049, latitude: 21.017532 }}
+          coordinates={{ latitude: 52.237049, longitude: 21.017532 }}
         />
       </Carousel.Item>
     </Carousel>
