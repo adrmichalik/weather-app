@@ -2,7 +2,13 @@ import Card from "react-bootstrap/Card";
 import HourlySliderItem from "./HourlySliderItem";
 import { useEffect, useState } from "react";
 
-function HourlySlider({ forecasts, sunrises, sunsets, forecasts_unit }) {
+function HourlySlider({
+  forecasts,
+  sunrises,
+  sunsets,
+  forecasts_unit,
+  current_temp_info,
+}) {
   const [sliderItems, setSliderItems] = useState([]);
 
   useEffect(() => {
