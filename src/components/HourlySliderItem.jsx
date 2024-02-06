@@ -10,7 +10,7 @@ function HourlySliderItem({
   return (
     <div className="hourly_slider_item">
       <div>
-        {hour % 24}
+        {typeof hour == "number" ? hour % 24 : hour}
         {minutes != undefined && ":" + minutes}
       </div>
       <div>{icon}</div>
