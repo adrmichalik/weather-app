@@ -78,6 +78,13 @@
   background-color: black;
 }
 
+.hourly_slider_item {
+  text-align: center;
+}
+.hourly_slider_item .hourly_slider_item__hour {
+  font-size: 14px;
+}
+
 @media (min-width: 600px) {
   #root {
     padding: 20px;

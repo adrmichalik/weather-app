@@ -3,7 +3,7 @@ import React from "react";
 function HourlySliderItem({ hour, minutes, icon, description }) {
   return (
     <div className="hourly_slider_item">
-      <div>
+      <div className="hourly_slider_item__hour">
         {typeof hour == "number" ? hour % 24 : hour}
         {minutes != undefined && ":" + minutes}
       </div>
