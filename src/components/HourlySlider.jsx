@@ -73,7 +73,7 @@ function HourlySlider({ forecasts, sunrises, sunsets, forecasts_unit }) {
               key={index}
               hour={item.hour}
               icon={item.code}
-              temperature={item.temp}
+              description={item.temp}
               temperature_unit={forecasts_unit}
             />
           );
@@ -84,7 +84,7 @@ function HourlySlider({ forecasts, sunrises, sunsets, forecasts_unit }) {
               hour={item.hour}
               minutes={item.minutes}
               icon={"Icon"}
-              temperature={item.type}
+              description={item.type}
             />
           );
       })}

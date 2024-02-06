@@ -4,7 +4,7 @@ function HourlySliderItem({
   hour,
   minutes,
   icon,
-  temperature,
+  description,
   temperature_unit,
 }) {
   return (
@@ -15,7 +15,7 @@ function HourlySliderItem({
       </div>
       <div>{icon}</div>
       <div>
-        {temperature}
+        {description}
         {temperature_unit}
       </div>
     </div>
