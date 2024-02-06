@@ -57,7 +57,7 @@ function WeatherCard({ locationName, coordinates }) {
           <HourlySlider
             forecasts={weather.hourly}
             sunrises={weather.daily.sunrise}
-            sunsets={weather.daily.sunrise}
+            sunsets={weather.daily.sunset}
             forecasts_unit={weather.hourly_units.temperature_2m}
           />
 
