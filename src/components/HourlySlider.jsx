@@ -72,6 +72,12 @@ function HourlySlider({
 
   return (
     <Card className="hourly_slider">
+      <HourlySliderItem
+        hour="Now"
+        icon={current_temp_info.code}
+        description={current_temp_info.code}
+        temperature_unit={forecasts_unit}
+      />
       {sliderItems.map((item, index) => {
         if (item.type == "forecast")
           return (
