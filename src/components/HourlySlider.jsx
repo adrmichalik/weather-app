@@ -62,10 +62,32 @@ function HourlySlider({ forecasts, sunrises, sunsets, forecasts_unit }) {
     console.log(arr);
   }, []);
 
+  if (sliderItems == undefined) return;
+
   return (
     <Card className="hourly_slider">
-      <HourlySliderItem />
-      <HourlySliderItem />
+      {sliderItems.map((item, index) => {
+        if (item.type == "forecast")
+          return (
+            <HourlySliderItem
+              key={index}
+              hour={item.hour}
+              icon={item.code}
+              temperature={item.temp}
+              temperature_unit={forecasts_unit}
+            />
+          );
+        if (item.type == "sunset" || item.type == "sunrise")
+          return (
+            <HourlySliderItem
+              key={index}
+              hour={item.hour}
+              minutes={item.minutes}
+              icon={"Icon"}
+              temperature={item.type}
+            />
+          );
+      })}
     </Card>
   );
 }
