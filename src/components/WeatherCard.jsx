@@ -1,6 +1,7 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import HourlySlider from "./HourlySlider";
 
 function WeatherCard() {
   return (
@@ -15,7 +16,7 @@ function WeatherCard() {
         <div>
           {/* In the future HourlyTempSlider (might change name) */}
           {/* It will contain temp, weather related icon and hour */}
-          <div className="slider">Slider Placeholder</div>
+          <HourlySlider />
 
           {/* In the future it will contain multiple forecast items*/}
           {/* Maybe separate component */}
