@@ -1,6 +1,8 @@
 import Card from "react-bootstrap/Card";
 import HourlySliderItem from "./HourlySliderItem";
 import { useEffect, useState } from "react";
+import { getWeatherIcon } from "../services/WeatherStatus";
+import { WiSunrise, WiSunset } from "react-icons/wi";
 
 function HourlySlider({
   forecasts,
@@ -74,8 +76,8 @@ function HourlySlider({
     <Card className="hourly_slider">
       <HourlySliderItem
         hour="Now"
-        icon={current_temp_info.code}
-        description={current_temp_info.code}
+        icon={getWeatherIcon(current_temp_info.code)()}
+        description={current_temp_info.temp}
       />
       {sliderItems.map((item, index) => {
         if (item.type == "forecast")
@@ -83,7 +85,7 @@ function HourlySlider({
             <HourlySliderItem
               key={index}
               hour={item.hour}
-              icon={item.code}
+              icon={getWeatherIcon(item.code)()}
               description={item.temp}
             />
           );
@@ -93,7 +95,7 @@ function HourlySlider({
               key={index}
               hour={item.hour}
               minutes={item.minutes}
-              icon={"Icon"}
+              icon={item.type == "sunrise" ? <WiSunrise /> : <WiSunset />}
               description={item.type}
             />
           );

@@ -3,6 +3,7 @@ import axios from "axios";
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
 import HourlySlider from "./HourlySlider";
+import { getWeatherDescription } from "../services/WeatherStatus";
 
 function WeatherCard({ locationName, coordinates }) {
   const [location_name, setLocation_name] = useState(locationName);
@@ -43,7 +44,7 @@ function WeatherCard({ locationName, coordinates }) {
             {Math.round(weather.current.temperature_2m)}{" "}
             {weather.current_units.temperature_2m}
           </h2>
-          <h4>{weather.current.weather_code}</h4>
+          <h4>{getWeatherDescription(weather.current.weather_code)}</h4>
           <span>
             From {Math.round(weather.daily.temperature_2m_min[0])}{" "}
             {weather.daily_units.temperature_2m_min} to{" "}
