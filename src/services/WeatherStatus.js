@@ -91,18 +91,33 @@ const WeatherStatus = {
   97: new WeatherInfo("Thunderstorm with heavy hail", WiThunderstorm),
 };
 
+/**
+ * Returs object with:
+ * - description : string
+ * - icon : IconType
+ * - icon_night : IconType
+ * @param {Number} code - code provided by API
+ */
 export function getWeatherStatus(code) {
   if (WeatherStatus[code] == undefined) return new WeatherInfo("Unknown", "?");
 
   return WeatherStatus[code];
 }
 
+/**
+ * Returns WeatherStatus' icon of provided code that need to be executed
+ * @param {Number} code - code provided by API
+ */
 export function getWeatherIcon(code) {
   const weatherStatus = getWeatherStatus(code);
 
   return weatherStatus.icon;
 }
 
+/**
+ * Returns WeatherStatus' description of provided code
+ * @param {Number} code - code provided by API
+ */
 export function getWeatherDescription(code) {
   const weatherStatus = getWeatherStatus(code);
 
