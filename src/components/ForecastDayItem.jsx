@@ -6,12 +6,12 @@ function ForecastDayItem({
 }) {
   return (
     <>
-      <span>
+      <span className="time">
         {new Date(date).toLocaleDateString("en", { weekday: "long" })}
       </span>
       {/* Later we will get the icon from WeatherStatus service */}
-      <span>{weather_code}</span>
-      <span>
+      <span className="icon">{weather_code}</span>
+      <span className="temp_range">
         From
         <span className="temp_range_blocks">{Math.round(temp_ranges.min)}</span>
         to

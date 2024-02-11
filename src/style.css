@@ -85,6 +85,37 @@
   font-size: 14px;
 }
 
+.forecast_multiple_days {
+  margin: 10px 0;
+}
+
+.forecast_multiple_days .forecast_single_day {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+}
+
+.forecast_single_day .time {
+  text-align: left;
+}
+.forecast_single_day .icon {
+  text-align: center;
+}
+.forecast_single_day .icon svg {
+  height: 22px;
+  width: 22px;
+}
+
+.forecast_single_day .temp_range {
+  text-align: right;
+}
+
+.forecast_single_day .temp_range .temp_range_blocks {
+  display: inline-block;
+  min-width: 22px;
+  padding: 0 2px;
+  text-align: center;
+}
+
 @media (min-width: 600px) {
   #root {
     padding: 20px;
