@@ -96,3 +96,15 @@ export function getWeatherStatus(code) {
 
   return WeatherStatus[code];
 }
+
+export function getWeatherIcon(code) {
+  const weatherStatus = getWeatherStatus(code);
+
+  return weatherStatus.icon;
+}
+
+export function getWeatherDescription(code) {
+  const weatherStatus = getWeatherStatus(code);
+
+  return weatherStatus.description;
+}
