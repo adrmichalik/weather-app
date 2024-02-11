@@ -95,7 +95,13 @@ function HourlySlider({
               key={index}
               hour={item.hour}
               minutes={item.minutes}
-              icon={item.type == "sunrise" ? <WiSunrise /> : <WiSunset />}
+              icon={
+                item.type == "sunrise" ? (
+                  <WiSunrise size={30} />
+                ) : (
+                  <WiSunset size={30} />
+                )
+              }
               description={item.type}
             />
           );
