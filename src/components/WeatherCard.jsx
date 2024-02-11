@@ -3,6 +3,7 @@ import axios from "axios";
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
 import HourlySlider from "./HourlySlider";
+import ForecastDayItem from "./ForecastDayItem";
 
 function WeatherCard({ locationName, coordinates }) {
   const [location_name, setLocation_name] = useState(locationName);
@@ -66,16 +67,19 @@ function WeatherCard({ locationName, coordinates }) {
 
           {/* In the future it will contain multiple forecast items*/}
           {/* Maybe separate component */}
-          <ListGroup>
+          <ListGroup className="forecast_multiple_days">
             {/* Header */}
             <ListGroup.Item variant="light">
               Multiple day forecast
             </ListGroup.Item>
             {/* Items */}
-            <ListGroup.Item>
-              <span>Day name</span>
-              <span>Weather Icon</span>
-              <span>Temp ranges</span>
+            <ListGroup.Item className="forecast_single_day">
+              <ForecastDayItem
+                date={weather.daily.time[1]}
+                weather_code={weather.daily.weather_code[1]}
+                temp_ranges={{ min: -99, max: -99 }}
+                temp_ranges_unit={weather.daily_units.temperature_2m_max}
+              />
             </ListGroup.Item>
           </ListGroup>
         </div>
