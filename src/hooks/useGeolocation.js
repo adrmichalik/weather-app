@@ -31,7 +31,7 @@ function useGeolocation() {
     window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
   }, []);
 
-  return [loading, error, coordinants];
+  return [loadingGeolocation, errorGeolocation, coordinants];
 }
 
 export default useGeolocation;
