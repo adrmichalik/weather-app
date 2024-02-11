@@ -115,6 +115,17 @@ export function getWeatherIcon(code) {
 }
 
 /**
+ * Returns WeatherStatus' night icon of provided code that need to be executed
+ * - If the night icon is not specified it will return universal type of icon
+ * @param {Number} code - code provided by API
+ */
+export function getWeatherNightIcon(code) {
+  const weatherStatus = getWeatherStatus(code);
+
+  return weatherStatus.icon_night;
+}
+
+/**
  * Returns WeatherStatus' description of provided code
  * @param {Number} code - code provided by API
  */
