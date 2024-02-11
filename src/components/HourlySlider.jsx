@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import HourlySliderItem from "./HourlySliderItem";
 import { useEffect, useState } from "react";
-import { getWeatherIcon } from "../services/WeatherStatus";
+import { getWeatherIcon, getWeatherNightIcon } from "../services/WeatherStatus";
 import { WiSunrise, WiSunset } from "react-icons/wi";
 
 function HourlySlider({
@@ -12,6 +12,8 @@ function HourlySlider({
   current_temp_info,
 }) {
   const [sliderItems, setSliderItems] = useState([]);
+  const [sunTimeState, setSunStimeState] = useState(); // This state inform slider what type of icon needs to be displayed day or night
+  let sunTime = sunTimeState; // Local variable based on sunTimeState, because we need to switch this variable inside of rendering loop
 
   useEffect(() => {
     let arr = [];
@@ -37,9 +39,11 @@ function HourlySlider({
       which_day_sunset = 0;
     if (currentHour > first_sunrise_time[11] + first_sunrise_time[12]) {
       which_day_sunrise = 1;
-    }
+      setSunStimeState(true);
+    } else setSunStimeState(false);
     if (currentHour > first_sunset_time[11] + first_sunset_time[12]) {
       which_day_sunset = 1;
+      setSunStimeState(false);
     }
 
     const sunrise_time = sunrises[which_day_sunrise];
@@ -76,7 +80,11 @@ function HourlySlider({
     <Card className="hourly_slider">
       <HourlySliderItem
         hour="Now"
-        icon={getWeatherIcon(current_temp_info.code)()}
+        icon={
+          sunTime === true
+            ? getWeatherIcon(current_temp_info.code)()
+            : getWeatherNightIcon(current_temp_info.code)()
+        }
         description={current_temp_info.temp}
       />
       {sliderItems.map((item, index) => {
@@ -85,11 +93,17 @@ function HourlySlider({
             <HourlySliderItem
               key={index}
               hour={item.hour}
-              icon={getWeatherIcon(item.code)()}
+              icon={
+                sunTime === true
+                  ? getWeatherIcon(item.code)()
+                  : getWeatherNightIcon(item.code)()
+              }
               description={item.temp}
             />
           );
-        if (item.type == "sunset" || item.type == "sunrise")
+        if (item.type == "sunset" || item.type == "sunrise") {
+          // If we encounter surise/sunset we need to switch suntime (day/night)
+          sunTime = !sunTime;
           return (
             <HourlySliderItem
               key={index}
@@ -105,6 +119,7 @@ function HourlySlider({
               description={item.type}
             />
           );
+        }
       })}
     </Card>
   );
