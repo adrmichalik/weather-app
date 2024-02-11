@@ -69,18 +69,23 @@ function WeatherCard({ locationName, coordinates }) {
           {/* Maybe separate component */}
           <ListGroup className="forecast_multiple_days">
             {/* Header */}
-            <ListGroup.Item variant="light">
-              Multiple day forecast
-            </ListGroup.Item>
+            <ListGroup.Item variant="light">Forecast (6 days)</ListGroup.Item>
             {/* Items */}
-            <ListGroup.Item className="forecast_single_day">
-              <ForecastDayItem
-                date={weather.daily.time[1]}
-                weather_code={weather.daily.weather_code[1]}
-                temp_ranges={{ min: -99, max: -99 }}
-                temp_ranges_unit={weather.daily_units.temperature_2m_max}
-              />
-            </ListGroup.Item>
+            {[1, 2, 3, 4, 5, 6].map((index) => {
+              return (
+                <ListGroup.Item key={index} className="forecast_single_day">
+                  <ForecastDayItem
+                    date={weather.daily.time[index]}
+                    weather_code={weather.daily.weather_code[index]}
+                    temp_ranges={{
+                      min: weather.daily.temperature_2m_min[index],
+                      max: weather.daily.temperature_2m_max[index],
+                    }}
+                    temp_ranges_unit={weather.daily_units.temperature_2m_max}
+                  />
+                </ListGroup.Item>
+              );
+            })}
           </ListGroup>
         </div>
       </Card.Body>
