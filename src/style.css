@@ -100,7 +100,7 @@
 
 .forecast_multiple_days .forecast_single_day {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-columns: 3fr 1fr 3fr;
 }
 
 .forecast_single_day .time {
