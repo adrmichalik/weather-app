@@ -50,6 +50,10 @@
   text-align: center;
 }
 
+.weather_card.weather_card_loading {
+  text-align: center;
+}
+
 .hourly_slider {
   display: flex;
   flex-direction: row;
