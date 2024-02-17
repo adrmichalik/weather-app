@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import WeatherCard from "./components/WeatherCard";
+import { loadLocations } from "./services/locations";
 
 function App() {
   const [index, setIndex] = useState(0);
+  const [locations, setLocations] = useState();
 
   function handleSelect(selectedId) {
     setIndex(selectedId);
   }
+
+  useEffect(() => {
+    setLocations(loadLocations());
+  }, []);
 
   return (
     <Carousel
@@ -35,6 +41,17 @@ function App() {
           coordinates={{ latitude: 52.237049, longitude: 21.017532 }}
         />
       </Carousel.Item>
+      {locations != undefined &&
+        locations.map((location) => {
+          return (
+            <Carousel.Item key={location.id}>
+              <WeatherCard
+                locationName={location.locationName}
+                coordinates={location.coordinates}
+              />
+            </Carousel.Item>
+          );
+        })}
     </Carousel>
   );
 }
