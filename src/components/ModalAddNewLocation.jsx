@@ -11,6 +11,15 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
   const [latitude, setLatitude] = useState();
   const [countryName, setCountryName] = useState(""); // For search purposes
 
+  function handleSubmitByCoordinates(event) {
+    event.preventDefault();
+    if (locationName == "" || longitude == "" || latitude == "") {
+      return;
+    }
+
+    handleAdd(locationName, latitude, longitude);
+  }
+
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
@@ -53,7 +62,7 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
             </Form>
           </Tab>
           <Tab eventKey="By Coordinates" title="By coordinates">
-            <Form className="mt-3">
+            <Form className="mt-3" onSubmit={handleSubmitByCoordinates}>
               <FloatingLabel
                 controlId="locationName"
                 label="Location name"
