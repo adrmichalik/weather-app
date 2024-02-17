@@ -5,7 +5,7 @@ import Tab from "react-bootstrap/Tab";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-function ModalAddNewLocation({ show, handleClose }) {
+function ModalAddNewLocation({ show, handleClose, handleAdd }) {
   const [locationName, setLocationName] = useState("");
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
