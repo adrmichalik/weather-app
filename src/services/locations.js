@@ -1,4 +1,4 @@
-import { addToArray, add, loadArray } from "./localStorageServices";
+import { addToArray, add, loadArray, load } from "./localStorageServices";
 import { v4 as uuid } from "uuid";
 
 class Location {
@@ -20,7 +20,7 @@ const SAVED_LOCATIONS_KEY = "locations";
  */
 //
 export function loadLocations() {
-  const locationsFromLocalStorage = loadItem(SAVED_LOCATIONS_KEY);
+  const locationsFromLocalStorage = load(SAVED_LOCATIONS_KEY);
 
   if (
     locationsFromLocalStorage == null ||
@@ -31,7 +31,7 @@ export function loadLocations() {
     console.warn(
       "Locations from local storage is null. Setting default value."
     );
-    saveItem(SAVED_LOCATIONS_KEY, []); // Set default value in localStorage
+    add(SAVED_LOCATIONS_KEY, []); // Set default value in localStorage
     return [];
   }
 
