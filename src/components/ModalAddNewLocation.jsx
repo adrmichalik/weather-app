@@ -50,6 +50,17 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
       });
   }
 
+  function handleAddBySearchOption() {
+    if (selectedLocationId == null) return;
+
+    searchResults.forEach((result) => {
+      if (result.id == selectedLocationId) {
+        handleAdd(result.name, result.latitude, result.longitude);
+        return;
+      }
+    });
+  }
+
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
@@ -167,6 +178,7 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
                 <Button
                   disabled={selectedLocationId == null ? true : false}
                   className="w-100 mt-3"
+                  onClick={handleAddBySearchOption}
                 >
                   Add
                 </Button>
