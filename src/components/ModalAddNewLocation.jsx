@@ -24,7 +24,7 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
     }
 
     handleAdd(locationName, latitude, longitude);
-    handleClose();
+    postSubmitEffects();
   }
 
   function handleSearch(event) {
@@ -57,10 +57,25 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
     searchResults.forEach((result) => {
       if (result.id == selectedLocationId) {
         handleAdd(result.name, result.latitude, result.longitude);
-        handleClose();
+        postSubmitEffects();
         return;
       }
     });
+  }
+
+  function resetModal() {
+    setLocationName("");
+    setSearchResults();
+    setSelectedLocationId();
+    setCountryName("");
+    setLongitude();
+    setLatitude();
+  }
+
+  // Executes after adding new location
+  function postSubmitEffects() {
+    handleClose();
+    resetModal();
   }
 
   return (
