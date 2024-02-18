@@ -125,6 +125,16 @@
   text-align: center;
 }
 
+.search_table {
+  margin-top: 0.3rem;
+}
+.search_table tr.selected td {
+  background-color: var(--bs-blue);
+  border-color: var(--bs-blue);
+  color: white;
+  transition: all 0.12s ease-in;
+}
+
 @media (min-width: 600px) {
   #root {
     padding: 20px;
