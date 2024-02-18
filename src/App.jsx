@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import WeatherCard from "./components/WeatherCard";
-import { loadLocations } from "./services/locations";
+import {
+  loadLocations,
+  addLocation,
+  deleteLocation,
+} from "./services/locations";
 import ModalAddNewLocation from "./components/ModalAddNewLocation";
 import CircleButton from "./components/CircleButton";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
@@ -14,6 +18,15 @@ function App() {
 
   function handleSelect(selectedId) {
     setIndex(selectedId);
+  }
+
+  function handleAddLocation(locationName, latitude, longitude) {
+    setLocations(addLocation(locationName, latitude, longitude));
+  }
+
+  function handleDeleteLocation(locationId) {
+    setLocations(deleteLocation(locationId));
+    setIndex((previousValue) => previousValue - 1);
   }
 
   useEffect(() => {
