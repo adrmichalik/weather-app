@@ -66,6 +66,7 @@ function App() {
                 <WeatherCard
                   locationName={location.locationName}
                   coordinates={location.coordinates}
+                  handleDelete={() => handleDeleteLocation(location.id)}
                 />
               </Carousel.Item>
             );
