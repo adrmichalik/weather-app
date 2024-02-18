@@ -5,12 +5,16 @@ import Card from "react-bootstrap/Card";
 import HourlySlider from "./HourlySlider";
 import ForecastDayItem from "./ForecastDayItem";
 import { getWeatherDescription } from "../services/WeatherStatus";
+import { MdDeleteOutline } from "react-icons/md";
+import ConfirmationModal from "./ConfirmationModal";
 
-function WeatherCard({ locationName, coordinates }) {
+function WeatherCard({ locationName, coordinates, handleDelete }) {
   const [location_name, setLocation_name] = useState(locationName);
   const [weather, setWeather] = useState();
   const [loadingApiResponse, setLoadingApiResponse] = useState(true);
   const [errorApiResponse, setErrorApiResponse] = useState(false);
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
     let { longitude, latitude } = coordinates;
@@ -89,6 +93,25 @@ function WeatherCard({ locationName, coordinates }) {
             })}
           </ListGroup>
         </div>
+        <button
+          className="button_delete"
+          disabled={handleDelete == undefined}
+          onClick={() => setShowDeleteModal(true)}
+        >
+          <MdDeleteOutline />
+        </button>
+        <ConfirmationModal
+          show={showDeleteModal}
+          title="Deleting a weather card"
+          btnCloseText="No"
+          handleClose={() => setShowDeleteModal(false)}
+          btnConfirmText="Yes"
+          btnConfirmVariant="outline-danger"
+          handleConfirm={() => handleDelete()}
+        >
+          You are deleting <strong>{location_name}</strong> location. Are you
+          sure?
+        </ConfirmationModal>
       </Card.Body>
     </Card>
   );
