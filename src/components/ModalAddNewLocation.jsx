@@ -24,6 +24,7 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
     }
 
     handleAdd(locationName, latitude, longitude);
+    handleClose();
   }
 
   function handleSearch(event) {
@@ -56,6 +57,7 @@ function ModalAddNewLocation({ show, handleClose, handleAdd }) {
     searchResults.forEach((result) => {
       if (result.id == selectedLocationId) {
         handleAdd(result.name, result.latitude, result.longitude);
+        handleClose();
         return;
       }
     });
