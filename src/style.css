@@ -135,6 +135,17 @@
   transition: all 0.12s ease-in;
 }
 
+.circle_button {
+  border: 0px solid black;
+  border-radius: 100%;
+  display: flex;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bs-btn-bg);
+  padding: 15px;
+}
+
 @media (min-width: 600px) {
   #root {
     padding: 20px;
