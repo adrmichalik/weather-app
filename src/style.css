@@ -32,9 +32,18 @@
   margin: 0 2px;
 }
 
-/* Placeholder, in the future svg icon */
 .weather_cards.using_geolocation .carousel-indicators > button:nth-child(1) {
-  background-color: red;
+  background: url("assets/location.svg") 50% no-repeat;
+  background-size: 90%;
+  padding: 2px;
+  margin: 0;
+}
+.weather_cards.using_geolocation
+  .carousel-indicators
+  > button:nth-child(1)
+  svg {
+  height: 80%;
+  width: 80%;
 }
 
 .weather_card {
