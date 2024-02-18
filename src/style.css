@@ -130,6 +130,58 @@
   text-align: center;
 }
 
+.search_table {
+  margin-top: 0.3rem;
+}
+.search_table tr.selected td {
+  background-color: var(--bs-blue);
+  border-color: var(--bs-blue);
+  color: white;
+  transition: all 0.12s ease-in;
+}
+
+.circle_button {
+  border: 0px solid black;
+  border-radius: 100%;
+  display: flex;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bs-btn-bg);
+  padding: 15px;
+}
+
+.button_open_modal {
+  position: absolute;
+  bottom: 6%;
+  right: 6%;
+}
+.button_open_modal svg {
+  height: 30px;
+  width: 30px;
+}
+
+.button_delete {
+  border: none;
+  background: inherit;
+  float: inline-end;
+  color: #dc3545;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+.button_delete svg {
+  height: 20px;
+  width: 20px;
+}
+.button_delete:disabled {
+  visibility: hidden;
+}
+
+.button_delete:hover {
+  color: #dc3545;
+  opacity: 1;
+}
+
 @media (min-width: 600px) {
   #root {
     padding: 20px;
