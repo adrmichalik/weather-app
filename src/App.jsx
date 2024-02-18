@@ -2,19 +2,27 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import WeatherCard from "./components/WeatherCard";
+import GeolocationWeatherCard from "./components/GeolocationWeatherCard";
 
 function App() {
   const [index, setIndex] = useState(0);
+  const [usingGeolocation, setUsingGeolocation] = useState(true);
 
   function handleSelect(selectedId) {
     setIndex(selectedId);
+  }
+
+  function handleGeoloacationError() {
+    setUsingGeolocation(false);
   }
 
   return (
     <Carousel
       activeIndex={index}
       onSelect={handleSelect}
-      className="weather_cards"
+      className={
+        usingGeolocation ? `weather_cards using_geolocation` : "weather_cards"
+      }
       touch={false}
       variant="dark"
       interval={null}
@@ -23,6 +31,11 @@ function App() {
       indicators={true}
       controls={true}
     >
+      {usingGeolocation && (
+        <Carousel.Item>
+          <GeolocationWeatherCard handleError={handleGeoloacationError} />
+        </Carousel.Item>
+      )}
       <Carousel.Item>
         <WeatherCard
           locationName="Cracow"

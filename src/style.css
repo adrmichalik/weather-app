@@ -32,6 +32,11 @@
   margin: 0 2px;
 }
 
+/* Placeholder, in the future svg icon */
+.weather_cards.using_geolocation .carousel-indicators > button:nth-child(1) {
+  background-color: red;
+}
+
 .weather_card {
   /* For testing purposes */
   display: flex;
