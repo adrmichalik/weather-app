@@ -13,6 +13,8 @@ import CircleButton from "./components/CircleButton";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
 import WeatherCardError from "./components/WeatherCardError";
 import Button from "react-bootstrap/Button";
+import AlertBar from "./components/AlertBar";
+import { useAddAlert } from "./hooks/AlertProvider";
 
 function App() {
   const [index, setIndex] = useState(0);
@@ -20,20 +22,37 @@ function App() {
   const [locations, setLocations] = useState([]);
   const [showAddNewLocationModal, setShowAddNewLocationModal] = useState(false);
 
+  const addAlert = useAddAlert();
+
   function handleSelect(selectedId) {
     setIndex(selectedId);
   }
 
   function handleGeoloacationError() {
     setUsingGeolocation(false);
+    addAlert({
+      text: "To use geolocation card, you must turn on geolocalization.",
+      type: "info",
+    });
   }
 
   function handleAddLocation(locationName, latitude, longitude) {
     setLocations(addLocation(locationName, latitude, longitude));
+    addAlert({ text: "Location added successfully.", type: "success" });
   }
 
   function handleDeleteLocation(locationId) {
-    setLocations(deleteLocation(locationId));
+    try {
+      setLocations(deleteLocation(locationId));
+    } catch (error) {
+      addAlert({
+        text: "Something went wrong while deleting location. Try later.",
+        type: "danger",
+      });
+      console.error(error);
+      return;
+    }
+    addAlert({ text: "Location deleted successfully.", type: "info" });
     if (index == 0) return;
     setIndex((previousValue) => previousValue - 1);
   }
@@ -44,6 +63,7 @@ function App() {
 
   return (
     <>
+      <AlertBar />
       <Carousel
         activeIndex={index}
         onSelect={handleSelect}

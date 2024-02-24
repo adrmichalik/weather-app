@@ -114,7 +114,10 @@ function WeatherCard({ locationName, coordinates, handleDelete }) {
           handleClose={() => setShowDeleteModal(false)}
           btnConfirmText="Yes"
           btnConfirmVariant="outline-danger"
-          handleConfirm={() => handleDelete()}
+          handleConfirm={() => {
+            handleDelete();
+            setShowDeleteModal(false);
+          }}
         >
           You are deleting <strong>{location_name}</strong> location. Are you
           sure?

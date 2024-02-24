@@ -196,6 +196,19 @@
   opacity: 1;
 }
 
+.alerts {
+  position: fixed;
+  z-index: 999;
+  padding: 20px 10px;
+  width: min(400px, 100vw);
+}
+
+.alerts .alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media (min-width: 600px) {
   #root {
     padding: 20px;
