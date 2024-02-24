@@ -144,6 +144,9 @@
 .search_table {
   margin-top: 0.3rem;
 }
+.search_table tr {
+  cursor: pointer;
+}
 .search_table tr.selected td {
   background-color: var(--bs-blue);
   border-color: var(--bs-blue);
