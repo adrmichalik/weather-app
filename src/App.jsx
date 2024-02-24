@@ -50,10 +50,8 @@ function App() {
         touch={false}
         variant="dark"
         interval={null}
-        // TODO:
-        // In the future it will depends on card numbers
         indicators={true}
-        controls={true}
+        controls={usingGeolocation + locations.length > 1}
       >
         {usingGeolocation && (
           <Carousel.Item>
