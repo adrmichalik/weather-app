@@ -8,6 +8,7 @@ import { getWeatherDescription } from "../services/WeatherStatus";
 import { MdDeleteOutline } from "react-icons/md";
 import ConfirmationModal from "./ConfirmationModal";
 import WeatherCardLoading from "./WeatherCardLoading";
+import WeatherCardError from "./WeatherCardError";
 
 function WeatherCard({ locationName, coordinates, handleDelete }) {
   const [location_name, setLocation_name] = useState(locationName);
@@ -38,7 +39,12 @@ function WeatherCard({ locationName, coordinates, handleDelete }) {
       });
   }, []);
 
-  if (errorApiResponse) return <h1>Error</h1>;
+  if (errorApiResponse)
+    return (
+      <WeatherCardError>
+        <h2>Something went wrong with connecting to forecast servers.</h2>
+      </WeatherCardError>
+    );
   if (loadingApiResponse) return <WeatherCardLoading />;
 
   return (
