@@ -13,6 +13,7 @@ import CircleButton from "./components/CircleButton";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
 import WeatherCardError from "./components/WeatherCardError";
 import Button from "react-bootstrap/Button";
+import AlertBar from "./components/AlertBar";
 
 function App() {
   const [index, setIndex] = useState(0);
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <>
+      <AlertBar />
       <Carousel
         activeIndex={index}
         onSelect={handleSelect}
