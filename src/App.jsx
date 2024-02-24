@@ -30,6 +30,10 @@ function App() {
 
   function handleGeoloacationError() {
     setUsingGeolocation(false);
+    addAlert({
+      text: "To use geolocation card, you must turn on geolocalization.",
+      type: "info",
+    });
   }
 
   function handleAddLocation(locationName, latitude, longitude) {
