@@ -12,13 +12,19 @@ export function useAddAlert() {
   return useContext(AddAlertContext);
 }
 
+export function useDeleteAlert() {
+  return useContext(DeleteAlertContext);
+}
+
 export function AlertProvider({ children }) {
   const [alerts, setAlerts] = useState([]);
 
   return (
     <AlertsContext.Provider value={alerts}>
       <AddAlertContext.Provider value={addAlert}>
-        {children}
+        <DeleteAlertContext.Provider value={deleteAlert}>
+          {children}
+        </DeleteAlertContext.Provider>
       </AddAlertContext.Provider>
     </AlertsContext.Provider>
   );
