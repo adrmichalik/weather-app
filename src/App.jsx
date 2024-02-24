@@ -14,12 +14,15 @@ import { MdOutlineAddLocationAlt } from "react-icons/md";
 import WeatherCardError from "./components/WeatherCardError";
 import Button from "react-bootstrap/Button";
 import AlertBar from "./components/AlertBar";
+import { useAddAlert } from "./hooks/AlertProvider";
 
 function App() {
   const [index, setIndex] = useState(0);
   const [usingGeolocation, setUsingGeolocation] = useState(true);
   const [locations, setLocations] = useState([]);
   const [showAddNewLocationModal, setShowAddNewLocationModal] = useState(false);
+
+  const addAlert = useAddAlert();
 
   function handleSelect(selectedId) {
     setIndex(selectedId);
