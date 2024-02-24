@@ -7,6 +7,7 @@ import ForecastDayItem from "./ForecastDayItem";
 import { getWeatherDescription } from "../services/WeatherStatus";
 import { MdDeleteOutline } from "react-icons/md";
 import ConfirmationModal from "./ConfirmationModal";
+import WeatherCardLoading from "./WeatherCardLoading";
 
 function WeatherCard({ locationName, coordinates, handleDelete }) {
   const [location_name, setLocation_name] = useState(locationName);
@@ -38,7 +39,7 @@ function WeatherCard({ locationName, coordinates, handleDelete }) {
   }, []);
 
   if (errorApiResponse) return <h1>Error</h1>;
-  if (loadingApiResponse) return <h1>Loading</h1>;
+  if (loadingApiResponse) return <WeatherCardLoading />;
 
   return (
     <Card className="weather_card">

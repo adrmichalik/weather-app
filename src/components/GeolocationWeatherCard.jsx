@@ -2,6 +2,7 @@ import WeatherCard from "./WeatherCard";
 import useGeolocation from "../hooks/useGeolocation";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import WeatherCardLoading from "./WeatherCardLoading";
 
 function GeolocationWeatherCard({ handleError }) {
   const [geoloactionCityName, setGeolocationCityName] = useState();
@@ -33,7 +34,7 @@ function GeolocationWeatherCard({ handleError }) {
     return;
   }
   if (loadingGeolocation || geoloactionCityName == undefined)
-    return <h1>Loading</h1>;
+    return <WeatherCardLoading />;
 
   return (
     <WeatherCard locationName={geoloactionCityName} coordinates={coordinates} />
