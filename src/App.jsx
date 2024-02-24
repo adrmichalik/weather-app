@@ -34,11 +34,13 @@ function App() {
 
   function handleAddLocation(locationName, latitude, longitude) {
     setLocations(addLocation(locationName, latitude, longitude));
+    addAlert({ text: "Location added successfully.", type: "success" });
   }
 
   function handleDeleteLocation(locationId) {
     setLocations(deleteLocation(locationId));
     setIndex((previousValue) => previousValue - 1);
+    addAlert({ text: "Location deleted successfully.", type: "info" });
   }
 
   useEffect(() => {
