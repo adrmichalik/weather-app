@@ -34,6 +34,7 @@ function App() {
 
   function handleDeleteLocation(locationId) {
     setLocations(deleteLocation(locationId));
+    if (index == 0) return;
     setIndex((previousValue) => previousValue - 1);
   }
 
