@@ -19,6 +19,10 @@ export function useDeleteAlert() {
 export function AlertProvider({ children }) {
   const [alerts, setAlerts] = useState([]);
 
+  function addAlert({ text, type }) {
+    setAlerts((previousAlerts) => [...previousAlerts, { text, type }]);
+  }
+
   return (
     <AlertsContext.Provider value={alerts}>
       <AddAlertContext.Provider value={addAlert}>
