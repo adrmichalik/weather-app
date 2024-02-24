@@ -11,6 +11,7 @@
 .weather_cards {
   width: min(100%, 600px);
   margin-bottom: 40px;
+  min-height: 680px;
 }
 
 .weather_cards .carousel-control-prev,
