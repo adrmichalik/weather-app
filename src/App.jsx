@@ -11,6 +11,8 @@ import {
 import ModalAddNewLocation from "./components/ModalAddNewLocation";
 import CircleButton from "./components/CircleButton";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
+import WeatherCardError from "./components/WeatherCardError";
+import Button from "react-bootstrap/Button";
 
 function App() {
   const [index, setIndex] = useState(0);
@@ -53,35 +55,35 @@ function App() {
         indicators={true}
         controls={usingGeolocation + locations.length > 1}
       >
+        {usingGeolocation == false && locations.length == 0 && (
+          <Carousel.Item>
+            <WeatherCardError>
+              <div>
+                <Button onClick={() => setShowAddNewLocationModal(true)}>
+                  Add a new location
+                </Button>
+                <br />
+                or turn on geolocation and refresh the page.
+              </div>
+            </WeatherCardError>
+          </Carousel.Item>
+        )}
         {usingGeolocation && (
           <Carousel.Item>
             <GeolocationWeatherCard handleError={handleGeoloacationError} />
           </Carousel.Item>
         )}
-        <Carousel.Item>
-          <WeatherCard
-            locationName="Cracow"
-            coordinates={{ latitude: 50.049683, longitude: 19.944544 }}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <WeatherCard
-            locationName="Warsaw"
-            coordinates={{ latitude: 52.237049, longitude: 21.017532 }}
-          />
-        </Carousel.Item>
-        {locations != undefined &&
-          locations.map((location) => {
-            return (
-              <Carousel.Item key={location.id}>
-                <WeatherCard
-                  locationName={location.locationName}
-                  coordinates={location.coordinates}
-                  handleDelete={() => handleDeleteLocation(location.id)}
-                />
-              </Carousel.Item>
-            );
-          })}
+        {locations.map((location) => {
+          return (
+            <Carousel.Item key={location.id}>
+              <WeatherCard
+                locationName={location.locationName}
+                coordinates={location.coordinates}
+                handleDelete={() => handleDeleteLocation(location.id)}
+              />
+            </Carousel.Item>
+          );
+        })}
       </Carousel>
       <ModalAddNewLocation
         show={showAddNewLocationModal}
