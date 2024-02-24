@@ -51,6 +51,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 0px;
+  min-height: 670px;
 }
 .weather_card .card-body {
   padding: 2rem;
