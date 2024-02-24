@@ -166,7 +166,7 @@
 }
 
 .button_open_modal {
-  position: absolute;
+  position: fixed;
   bottom: 6%;
   right: 6%;
 }
