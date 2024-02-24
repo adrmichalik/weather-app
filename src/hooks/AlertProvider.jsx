@@ -4,6 +4,9 @@ const AlertsContext = React.createContext([]);
 const AddAlertContext = React.createContext();
 const DeleteAlertContext = React.createContext();
 
+/**
+ * Returns array state with alerts
+ */
 export function useAlerts() {
   return useContext(AlertsContext);
 }
