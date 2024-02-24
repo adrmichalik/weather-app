@@ -38,7 +38,16 @@ function App() {
   }
 
   function handleDeleteLocation(locationId) {
-    setLocations(deleteLocation(locationId));
+    try {
+      setLocations(deleteLocation(locationId));
+    } catch (error) {
+      addAlert({
+        text: "Something went wrong while deleting location. Try later.",
+        type: "danger",
+      });
+      console.error(error);
+      return;
+    }
     setIndex((previousValue) => previousValue - 1);
     addAlert({ text: "Location deleted successfully.", type: "info" });
   }
