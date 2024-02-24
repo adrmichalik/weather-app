@@ -65,6 +65,10 @@
 .weather_card.weather_card_loading {
   text-align: center;
 }
+.weather_card.error {
+  text-align: center;
+  padding: 2rem;
+}
 
 .hourly_slider {
   display: flex;
