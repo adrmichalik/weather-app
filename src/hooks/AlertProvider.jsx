@@ -23,6 +23,11 @@ export function AlertProvider({ children }) {
     setAlerts((previousAlerts) => [...previousAlerts, { text, type }]);
   }
 
+  function deleteAlert(id) {
+    let newAlerts = alerts.filter((alert, ind) => ind != id);
+    setAlerts(newAlerts);
+  }
+
   return (
     <AlertsContext.Provider value={alerts}>
       <AddAlertContext.Provider value={addAlert}>
