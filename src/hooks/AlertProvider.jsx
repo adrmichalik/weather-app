@@ -11,6 +11,13 @@ export function useAlerts() {
   return useContext(AlertsContext);
 }
 
+/**
+ * Returns function to add alert to `AlertsContext`
+ * - to get current state use `useAlerts()`
+ * @param {string} text - returning function param
+ * @param {string} type - returning function param - see bootstrap types of alerts
+ * @return {function}
+ */
 export function useAddAlert() {
   return useContext(AddAlertContext);
 }
