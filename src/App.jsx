@@ -15,7 +15,7 @@ import { MdOutlineAddLocationAlt } from "react-icons/md";
 function App() {
   const [index, setIndex] = useState(0);
   const [usingGeolocation, setUsingGeolocation] = useState(true);
-  const [locations, setLocations] = useState();
+  const [locations, setLocations] = useState([]);
   const [showAddNewLocationModal, setShowAddNewLocationModal] = useState(false);
 
   function handleSelect(selectedId) {
