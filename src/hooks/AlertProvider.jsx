@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 
 const AlertsContext = React.createContext([]);
 const AddAlertContext = React.createContext();
+const DeleteAlertContext = React.createContext();
 
 export function useAlerts() {
   return useContext(AlertsContext);
 }
 
-export function addAlert() {
+export function useAddAlert() {
   return useContext(AddAlertContext);
 }
 
