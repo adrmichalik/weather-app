@@ -22,6 +22,12 @@ export function useAddAlert() {
   return useContext(AddAlertContext);
 }
 
+/**
+ * Returns function to delete alert in `AlertsContext`
+ * - to get current state use `useAlerts()`
+ * @param {string} id - returning function param - id of alert
+ * @return {function}
+ */
 export function useDeleteAlert() {
   return useContext(DeleteAlertContext);
 }
